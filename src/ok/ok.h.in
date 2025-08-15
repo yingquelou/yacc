@@ -1,0 +1,6 @@
+#ifndef ${PROJ}_H
+#define ${PROJ}_H 1
+#define SCANNER_HEADER
+#define PARSER_HEADER
+#include "config.h"
+#endif

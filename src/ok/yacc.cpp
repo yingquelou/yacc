@@ -1,7 +1,4 @@
-﻿#define SCANNER_HEADER
-#define PARSER_HEADER
-#include "pch.h"
-#include <cstdio>
+﻿#include"ok.h"
 int main(int argc, const char *argv[])
 {
 	void *scanner;
@@ -12,15 +9,15 @@ int main(int argc, const char *argv[])
 			fprintf(stderr, "Failed to open file: %s\n", argv[i]);
 			continue;
 		}
-		yylex_init(&scanner);
-		yyset_in(f, scanner);
+		oklex_init(&scanner);
+		okset_in(f, scanner);
 		yy::parser parser(scanner);
 		try {
 			parser();
 		} catch (const std::exception& ex) {
 			fprintf(stderr, "Parsing failed for file: %s\nError: %s\n", argv[i], ex.what());
 		}
-		yylex_destroy(scanner);
+		oklex_destroy(scanner);
 		fclose(f);
 	}
 	return 0;

@@ -4,9 +4,9 @@
 %define api.value.type variant
 %{
 #define SCANNER_HEADER
-#include"pch.h"
+#include"config.h"
 %}
-
+%no-lines
 %param {void* yyscanner}
 /*
 With both ‘%define api.value.type variant’ and ‘%define
@@ -40,6 +40,8 @@ Code output location
     - Near the top of the parser implementation file.
 */
 %code provides{
+#include "yy.h"
+// 为解析器声明扫描器
 extern YY_DECL;
 }
 
@@ -47,8 +49,8 @@ extern YY_DECL;
 
 %%
 start:
-|number start{
-std::cout<<"number:\t"<<$1<<'\n';
+|start number{
+std::cout<<"number:\t"<<$number<<'\n';
 }
 ;
 

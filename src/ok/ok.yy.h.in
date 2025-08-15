@@ -1,0 +1,4 @@
+#ifndef ${PROJ}_YY_H
+#define ${PROJ}_YY_H 1
+#define yylex ${PROJ}lex
+#endif

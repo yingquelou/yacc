@@ -1,9 +1,13 @@
-%option nounistd noyywrap stack reentrant
+%option nounistd noyywrap stack reentrant noline
 %top {
 /*
 	definitions节的所有top块将按出现顺序逐字追加到扫描器实现文件的顶部
 	需要头文件的话,也会输出到扫描器头文件顶部
 */
+#ifndef YY_DECL
+// 定义扫描器函数签名
+#define YY_DECL yy::parser::symbol_type yylex(void* yyscanner)
+#endif /* !YY_DECL */
 }
 %{
 /*
@@ -11,7 +15,7 @@
 	此时flex仅为我们完成了部分的定义或声明(宏、类型、变量、函数)
 */
 #define PARSER_HEADER
-#include"pch.h"
+#include"config.h"
 #include <sstream>
 template <typename T>
 T As(const std::string &s)

@@ -18,7 +18,7 @@ void yyerror(void* yyscanner,const char *msg);
 
 %%
 start:
-|number start{
+|start number {
 }
 ;
 
