@@ -1,4 +1,4 @@
-%option nounistd noyywrap stack reentrant
+%option nounistd noyywrap stack reentrant always-interactive
 %top {
 
 }

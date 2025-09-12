@@ -1,4 +1,4 @@
-%option nounistd noyywrap stack reentrant noline
+%option nounistd noyywrap stack reentrant noline always-interactive
 %top {
 /*
 	definitions节的所有top块将按出现顺序逐字追加到扫描器实现文件的顶部

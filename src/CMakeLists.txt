@@ -1,15 +1,4 @@
-﻿if(WIN32)
-	set(BISON_ZIP ${CMAKE_TEMP_PATH})
-	cmake_path(APPEND BISON_ZIP ${CMAKE_TEMP_PATH} win_flex_bison.zip)
-	cmake_path(APPEND BISON_DIR ${CMAKE_TEMP_PATH} win_flex_bison)
-	if(NOT EXISTS ${BISON_ZIP})
-		# file(DOWNLOAD "https://jaist.dl.sourceforge.net/project/winflexbison/win_flex_bison-latest.zip" ${CMAKE_BINARY_DIR}/fb.zip)
-		file(DOWNLOAD "https://github.com/lexxmark/winflexbison/releases/download/v2.5.25/win_flex_bison-2.5.25.zip" ${BISON_ZIP})
-		file(ARCHIVE_EXTRACT INPUT ${BISON_ZIP} DESTINATION ${BISON_DIR})
-	endif()
-	set(ENV{PATH} "${BISON_DIR};$ENV{PATH}")
-endif()
-find_package(BISON REQUIRED)
+﻿find_package(BISON REQUIRED)
 find_package(FLEX REQUIRED)
 
 execute_process(COMMAND  ${FLEX_EXECUTABLE} -V
