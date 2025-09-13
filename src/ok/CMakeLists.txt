@@ -1,7 +1,7 @@
 ﻿cmake_path(GET CMAKE_CURRENT_LIST_DIR STEM PROJ)
 flex_target(${PROJ}_SCANNER ok.l ${CMAKE_CURRENT_BINARY_DIR}/${PROJ}.lex.cpp
 DEFINES_FILE "${CMAKE_CURRENT_BINARY_DIR}/${PROJ}.lex.h"
-OPTIONS "$<${IS_WIN_FLEX}:--wincompat>;--prefix=${PROJ}")
+OPTIONS "--prefix=${PROJ}")
 bison_target(${PROJ}_PARSER ok.y ${CMAKE_CURRENT_BINARY_DIR}/${PROJ}.yacc.cpp
 DEFINES_FILE "${CMAKE_CURRENT_BINARY_DIR}/${PROJ}.yacc.h"
 OPTIONS "")
