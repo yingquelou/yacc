@@ -15,3 +15,4 @@ add_executable(${PROJ} yacc.cpp
 ${FLEX_${PROJ}_SCANNER_OUTPUTS}
 ${BISON_${PROJ}_PARSER_OUTPUTS})
 target_include_directories(${PROJ} PRIVATE ${CMAKE_CURRENT_BINARY_DIR})
+install(TARGETS ${PROJ})
